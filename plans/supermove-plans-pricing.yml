@@ -1,0 +1,60 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Supermove
+providerId: supermove
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Moving Company Software
+- Field Service
+- Operations
+- Plans
+description: >-
+  Supermove does not publish standard, self-serve, or per-user pricing. It is sold
+  as a custom subscription: prospective moving companies book a demo and receive a
+  personalized quote sized to the company's operations. Third-party review sites
+  report that a free trial and a demo are available but that no list price is
+  published. The documented Developer API (the per-account New Lead Endpoint) is a
+  platform capability, not a separately metered product - there is no published API
+  price, quota, or usage tier for it. Exact subscription rates are not reconciled
+  here.
+notes: >-
+  Verify current packaging (edition tiers, included apps, payments/AI add-ons) with
+  Supermove sales during reconciliation. No public API metering or overage pricing
+  is documented for the New Lead Endpoint.
+sources:
+- https://www.supermove.com/
+- https://www.getapp.com/industries-software/a/supermove/
+- https://www.capterra.com/p/200112/Supermove/
+plans:
+- id: supermove-custom-subscription
+  name: Custom Subscription (Contact Sales)
+  type: enterprise
+  description: >-
+    Quote-based subscription to the Supermove moving operating system, scoped to a
+    company's size and needs. Book a demo to receive pricing. Includes the office,
+    crew, estimator, and storage apps and the platform's operational modules
+    (sales, dispatch, accounting, payments), subject to the negotiated package.
+    The Developer API New Lead Endpoint is available to accounts as a platform
+    capability at no separately published price.
+  entries:
+  - label: Custom Subscription
+    name: custom_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales for a custom quote
+    userMultiplied: false
+  elements:
+  - name: Office, Crew, Estimator, and Storage Apps
+  - name: Sales, Dispatch, and Operations Modules
+  - name: Developer API - New Lead Endpoint
+  - name: Product Integrations (QuickBooks, HubSpot, Stripe, Zapier, and more)
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

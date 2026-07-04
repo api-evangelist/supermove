@@ -1,0 +1,92 @@
+aid: supermove
+name: Supermove
+review:
+  question: Does Supermove expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Supermove's one documented public API
+    surface - the Developer API "New Lead Endpoint" - is an inbound HTTP webhook
+    receiver: an upstream lead provider (or a company's own website) POSTs a lead
+    as JSON to a per-account URL. It is request/response HTTP over HTTPS with no
+    server-push transport. There is no documented WebSocket or Server-Sent Events
+    channel on any Supermove API to model. Supermove's own product integrations
+    (QuickBooks, HubSpot, Stripe, Google Calendar, Zapier, Thumbtack, and other
+    lead providers) are delivered through internal connectors, not a public
+    streaming API.
+findings:
+  summary: |
+    Supermove does not publish a documented public WebSocket API. Supermove is a
+    cloud moving-company operating system (sales, estimating, dispatch,
+    operations, a field crew app, storage, payments, and accounting). Its public
+    developer surface is intentionally narrow: a single documented Developer API,
+    the "New Lead Endpoint." Each Supermove account is provisioned with a unique
+    inbound webhook URL; possession of that account-specific URL is what scopes a
+    payload to the account (no API key or organization identifier is sent). Lead
+    providers or a company's website POST a lead as JSON (Content-Type:
+    application/json) matching a documented schema (project_type plus client,
+    billing_client, and jobs objects with contacts and locations). This surface is
+    inbound lead ingestion only - it does not read or manage jobs, dispatch,
+    estimates, crews, or invoices - and it is pure request/response HTTP. No
+    realtime, bidirectional, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented on any Supermove API.
+  openSource: |
+    Supermove is a proprietary, closed-source SaaS platform. There is no public
+    open-source engine or self-hostable distribution. It is sold via demo and a
+    custom subscription quote; there is no self-serve API signup and no published
+    API pricing.
+  publicApi: |
+    One documented public API exists: the Developer API New Lead Endpoint (inbound
+    lead webhook, per-account URL, no API keys). There is no documented general
+    REST/CRUD platform API for jobs/moves, customers, estimates, crews, dispatch,
+    or invoices. Those exist as product features and are exchanged with third
+    parties through Supermove's own named integrations rather than a public
+    outbound API.
+  transports:
+    - protocol: HTTP Webhook (inbound)
+      scheme: https
+      documented: true
+      note: >-
+        Developer API New Lead Endpoint. Upstream sender POSTs lead JSON to a
+        per-account URL. Request/response HTTP, not WebSocket.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: >-
+        No documented public REST platform API for reading/managing jobs,
+        customers, estimates, dispatch, or invoices.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented anywhere in Supermove's Help Center or
+        developer materials as of the review date.
+  endpointsModeled:
+    - POST {per-account New Lead Endpoint URL}  # create a new lead/project from JSON
+  endpointsConfirmedRest: []
+sources:
+  - url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-Integration
+    type: Documentation
+    note: Developer API integration overview; per-account endpoint URL, JSON webhook, no API keys.
+  - url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
+    type: APIReference
+    note: New Lead Endpoint JSON schema - project_type, client, billing_client, jobs, locations.
+  - url: https://help.supermove.com/hc/en-us/articles/37006304658708-Lead-Providers-Overview
+    type: Documentation
+    note: Lead providers overview; how inbound lead integrations are configured per account.
+  - url: https://www.supermove.com/
+    type: Website
+    note: Product/platform overview (office, crew, estimator, storage apps; sales/dispatch/accounting).
+  - url: https://www.getapp.com/industries-software/a/supermove/
+    type: Reference
+    note: Third-party profile; custom pricing (contact sales), free trial, integrations list.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Supermove's only documented public API is
+    an inbound HTTP webhook (the New Lead Endpoint), which is request/response over
+    HTTPS. No AsyncAPI document was created because there is no server-push
+    transport on any Supermove API to model.

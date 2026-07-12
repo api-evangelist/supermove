@@ -71,3 +71,9 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+
+common:
+  - type: DomainSecurity
+    url: security/supermove-domain-security.yml
+  - url: https://www.supermove.com/blog
+    type: Blog

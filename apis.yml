@@ -73,6 +73,8 @@ maintainers:
   email: kin@apievangelist.com
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/supermove-agentic-access.yml
   - type: DomainSecurity
     url: security/supermove-domain-security.yml
   - url: https://www.supermove.com/blog

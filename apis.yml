@@ -17,7 +17,19 @@ description: Supermove is a cloud-based moving company operating system that man
   Thumbtack, and other lead providers) are handled through Supermove's own
   connectors rather than a general outbound public API. Access is not self-serve;
   Supermove is sold via demo and custom quote.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: true
+  try_now: false
+  public: false
+  label: Paid (free trial)
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/supermove.png
 tags:
 - Moving
 - Moving Company Software
@@ -31,34 +43,25 @@ created: '2026-07-04'
 modified: '2026-07-04'
 specificationVersion: '0.19'
 apis:
-- aid: supermove:supermove-developer-api-new-lead-endpoint
-  name: Supermove Developer API - New Lead Endpoint
+- aid: supermove:supermove-supermove-developer-api-new-lead-endpoint-api
+  name: Supermove Supermove Developer API New Lead Endpoint API
+  description: >-
+    The Supermove Developer API New Lead Endpoint API from Supermove — 1 operation(s) for supermove developer
+    api new lead endpoint.
+  humanURL: >-
+    https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
+  baseURL: >-
+    https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
   tags:
-  - Leads
-  - Webhooks
-  - Inbound Integration
-  - Lead Providers
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
-  baseURL: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
+  - Supermove Developer API New Lead Endpoint
   properties:
-  - url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-Integration
-    type: Documentation
-  - url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
-    type: APIReference
-  - url: openapi/supermove-openapi.yml
-    type: OpenAPI
-  description: The one documented public Supermove API. Each Supermove account
-    exposes a unique per-account webhook URL; a lead provider or the company's own
-    website POSTs a lead as JSON to that URL to create a new lead/project. The
-    payload follows a documented JSON schema with a project_type plus client,
-    billing_client, and jobs objects (contacts, locations, and lead metadata); most
-    fields are optional. Authentication is by possession of the account-specific
-    endpoint URL - no API key or organization identifier is sent. This surface is
-    inbound only (lead ingestion); it does not read or manage jobs, dispatch,
-    estimates, crews, or invoices. Endpoints are modeled in OpenAPI from the public
-    Help Center documentation because the concrete host is a per-account URL that is
-    not published.
+  - type: OpenAPI
+    url: openapi/supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml
+  - type: Documentation
+    url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-Integration
+  - type: APIReference
+    url: >-
+      https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
 common:
 - type: LinkedIn
   url: https://www.linkedin.com/company/supermoveco

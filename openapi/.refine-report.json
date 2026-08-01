@@ -1,0 +1,14 @@
+{
+  "provider": "supermove",
+  "sources": [
+    "supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml"
+  ],
+  "outputs": [
+    "supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

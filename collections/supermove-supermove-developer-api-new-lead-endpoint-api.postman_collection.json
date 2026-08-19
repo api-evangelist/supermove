@@ -1,0 +1,180 @@
+{
+  "item": [
+    {
+      "id": "9bbb5ac9-a255-479f-be63-19c7df61892a",
+      "name": "Supermove Developer API New Lead Endpoint",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30e0f8e1-d655-4ab0-a9c1-afc6d6cbb00d",
+          "name": "Create a new lead",
+          "request": {
+            "name": "Create a new lead",
+            "description": {
+              "content": "POST a moving lead as JSON to the account's unique endpoint URL. Supermove validates the payload against the documented lead schema and creates a new lead/project in the account. The header Content-Type: application/json is required. Most fields are optional; a project_type and at least basic client contact information are typically supplied.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique inbound endpoint URL provisioned for a Supermove account.",
+                  "type": "any",
+                  "value": "{{accountEndpoint}}",
+                  "key": "accountEndpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_type\": \"<string>\",\n  \"client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"billing_client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"jobs\": [\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e113ce49-ceca-4287-b68f-43893a814192",
+              "name": "Lead accepted and created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique inbound endpoint URL provisioned for a Supermove account.",
+                      "type": "any",
+                      "value": "{{accountEndpoint}}",
+                      "key": "accountEndpoint"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_type\": \"local-move\",\n  \"client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"billing_client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"jobs\": [\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c299c7af-79e7-4a86-80a7-adee32d53f3e",
+              "name": "Payload did not match the expected JSON schema.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique inbound endpoint URL provisioned for a Supermove account.",
+                      "type": "any",
+                      "value": "{{accountEndpoint}}",
+                      "key": "accountEndpoint"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_type\": \"local-move\",\n  \"client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"billing_client\": {\n    \"name\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"primary_contact\": {\n      \"full_name\": \"<string>\",\n      \"email\": \"<email>\",\n      \"phone_number\": \"<string>\"\n    }\n  },\n  \"jobs\": [\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"locations\": [\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        },\n        {\n          \"address\": \"<string>\",\n          \"city\": \"<string>\",\n          \"zip_code\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The unique inbound endpoint URL provisioned for a Supermove account.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-unique-supermove-endpoint.example.com/lead",
+      "key": "accountEndpoint"
+    },
+    {
+      "type": "string",
+      "value": "https://{{accountEndpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "db1b9cb1-c32a-43b6-9977-81fe8e71c9a9",
+    "name": "Supermove Developer API - New Lead Endpoint Supermove Developer API New Lead Endpoint API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Modeled from Supermove's public Help Center documentation for the Developer API \"New Lead Endpoint\". This is Supermove's one documented public integration surface: a per-account inbound webhook that ingests a moving lead as JSON and creates a lead/project inside the receiving Supermove account.\n\nAuthentication model: each Supermove account exposes a unique webhook URL that is copied from the account settings and handed to the upstream lead provider (or used by the company's own website). Possession of that account-specific URL is what scopes the payload to the account - no API key, bearer token, or organization identifier is transmitted. For that reason the server host below is a per-account placeholder rather than a single published base URL. All request fields are modeled from the documented JSON schema; most are optional.\n\n\nContact Support:\n Name: Supermove Help Center",
+      "type": "text/plain"
+    }
+  }
+}

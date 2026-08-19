@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Supermove Developer API - New Lead Endpoint Supermove Developer API New Lead Endpoint API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Supermove Developer API New Lead Endpoint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{accountEndpoint}/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST a moving lead as JSON to the account's unique endpoint URL. Supermove validates the payload against the documented lead schema and creates a new lead/project in the account. The header Content-Type: application/json is required. Most fields are optional; a project_type and at least basic client contact information are typically supplied.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

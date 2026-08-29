@@ -17,6 +17,17 @@ description: Supermove is a cloud-based moving company operating system that man
   Thumbtack, and other lead providers) are handled through Supermove's own
   connectors rather than a general outbound public API. Access is not self-serve;
   Supermove is sold via demo and custom quote.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown

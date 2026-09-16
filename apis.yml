@@ -74,6 +74,8 @@ apis:
   - type: APIReference
     url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-New-Lead-Endpoint
 common:
+- type: Website
+  url: https://supermove.com
 - type: AgenticAccess
   url: agentic-access/supermove-agentic-access.yml
 - type: DomainSecurity

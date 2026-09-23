@@ -1,7 +1,7 @@
 {
   "provider": "supermove",
   "sources": [
-    "supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml"
+    "_original/supermove-openapi.yml"
   ],
   "outputs": [
     "supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml"
@@ -9,6 +9,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "supermove-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "supermove-openapi.yml: tagged paths POST / -> Supermove Developer API New Lead Endpoint",
+    "supermove-openapi.yml: declared missing tag: Supermove Developer API New Lead Endpoint",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "supermove-supermove-developer-api-new-lead-endpoint-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,13 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Supermove Developer API - New Lead Endpoint Supermove Developer API New Lead Endpoint API
+  title: Supermove Developer API - New Lead Endpoint Supermove…
   version: '1.0'
-  description: 'Modeled from Supermove''s public Help Center documentation for the Developer API "New Lead Endpoint". This is Supermove''s one documented public integration surface: a per-account inbound webhook that ingests a moving lead as JSON and creates a lead/project inside the receiving Supermove account.
-
-
-    Authentication model: each Supermove account exposes a unique webhook URL that is copied from the account settings and handed to the upstream lead provider (or used by the company''s own website). Possession of that account-specific URL is what scopes the payload to the account - no API key, bearer token, or organization identifier is transmitted. For that reason the server host below is a per-account placeholder rather than a single published base URL. All request fields are modeled from the documented JSON schema; most are optional.
-
-    '
+  description: Modeled from Supermove's public Help Center documentation for the Developer API "New Lead Endpoint".
   contact:
     name: Supermove Help Center
     url: https://help.supermove.com/hc/en-us/articles/36934839868692-Developer-API-Integration
@@ -27,9 +22,7 @@ paths:
     post:
       operationId: createNewLead
       summary: Create a new lead
-      description: 'POST a moving lead as JSON to the account''s unique endpoint URL. Supermove validates the payload against the documented lead schema and creates a new lead/project in the account. The header Content-Type: application/json is required. Most fields are optional; a project_type and at least basic client contact information are typically supplied.
-
-        '
+      description: 'POST a moving lead as JSON to the account''s unique endpoint URL. Supermove validates the payload against the documented lead schema and creates a new lead/project in the account. The header Content-Type: application/json is required. Most fields are optional; a project_type and at least basic client contact information are typically supplied.'
       requestBody:
         required: true
         content:
@@ -45,23 +38,28 @@ paths:
       - Supermove Developer API New Lead Endpoint
 components:
   schemas:
-    NewLead:
+    Contact:
       type: object
-      description: Inbound lead payload. All properties are optional unless noted.
       properties:
-        project_type:
+        full_name:
           type: string
-          description: The kind of move/project, e.g. "local-move".
-          example: local-move
-        client:
-          $ref: '#/components/schemas/Client'
-        billing_client:
-          $ref: '#/components/schemas/Client'
-        jobs:
-          type: array
-          description: One or more jobs associated with the lead, each carrying location detail.
-          items:
-            $ref: '#/components/schemas/Job'
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+    Client:
+      type: object
+      description: A client (or billing client) associated with the lead.
+      properties:
+        name:
+          type: string
+          description: Client or company name.
+        notes:
+          type: string
+          description: Free-form notes about the client.
+        primary_contact:
+          $ref: '#/components/schemas/Contact'
     Job:
       type: object
       description: A job within the lead, including location information.
@@ -79,25 +77,20 @@ components:
           type: string
         zip_code:
           type: string
-    Client:
+    NewLead:
       type: object
-      description: A client (or billing client) associated with the lead.
+      description: Inbound lead payload. All properties are optional unless noted.
       properties:
-        name:
+        project_type:
           type: string
-          description: Client or company name.
-        notes:
-          type: string
-          description: Free-form notes about the client.
-        primary_contact:
-          $ref: '#/components/schemas/Contact'
-    Contact:
-      type: object
-      properties:
-        full_name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
+          description: The kind of move/project, e.g. "local-move".
+          example: local-move
+        client:
+          $ref: '#/components/schemas/Client'
+        billing_client:
+          $ref: '#/components/schemas/Client'
+        jobs:
+          type: array
+          description: One or more jobs associated with the lead, each carrying location detail.
+          items:
+            $ref: '#/components/schemas/Job'

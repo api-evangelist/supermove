@@ -38,6 +38,26 @@ paths:
       - Supermove Developer API New Lead Endpoint
 components:
   schemas:
+    Client:
+      type: object
+      description: A client (or billing client) associated with the lead.
+      properties:
+        name:
+          type: string
+          description: Client or company name.
+        notes:
+          type: string
+          description: Free-form notes about the client.
+        primary_contact:
+          $ref: '#/components/schemas/Contact'
+    Job:
+      type: object
+      description: A job within the lead, including location information.
+      properties:
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
     Location:
       type: object
       properties:
@@ -46,6 +66,16 @@ components:
         city:
           type: string
         zip_code:
+          type: string
+    Contact:
+      type: object
+      properties:
+        full_name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
           type: string
     NewLead:
       type: object
@@ -64,33 +94,3 @@ components:
           description: One or more jobs associated with the lead, each carrying location detail.
           items:
             $ref: '#/components/schemas/Job'
-    Client:
-      type: object
-      description: A client (or billing client) associated with the lead.
-      properties:
-        name:
-          type: string
-          description: Client or company name.
-        notes:
-          type: string
-          description: Free-form notes about the client.
-        primary_contact:
-          $ref: '#/components/schemas/Contact'
-    Contact:
-      type: object
-      properties:
-        full_name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
-    Job:
-      type: object
-      description: A job within the lead, including location information.
-      properties:
-        locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'

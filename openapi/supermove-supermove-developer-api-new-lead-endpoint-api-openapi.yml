@@ -38,15 +38,6 @@ paths:
       - Supermove Developer API New Lead Endpoint
 components:
   schemas:
-    Location:
-      type: object
-      properties:
-        address:
-          type: string
-        city:
-          type: string
-        zip_code:
-          type: string
     Client:
       type: object
       description: A client (or billing client) associated with the lead.
@@ -59,6 +50,16 @@ components:
           description: Free-form notes about the client.
         primary_contact:
           $ref: '#/components/schemas/Contact'
+    Contact:
+      type: object
+      properties:
+        full_name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
     Job:
       type: object
       description: A job within the lead, including location information.
@@ -67,6 +68,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    Location:
+      type: object
+      properties:
+        address:
+          type: string
+        city:
+          type: string
+        zip_code:
+          type: string
     NewLead:
       type: object
       description: Inbound lead payload. All properties are optional unless noted.
@@ -84,13 +94,3 @@ components:
           description: One or more jobs associated with the lead, each carrying location detail.
           items:
             $ref: '#/components/schemas/Job'
-    Contact:
-      type: object
-      properties:
-        full_name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
